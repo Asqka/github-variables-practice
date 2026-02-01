@@ -1,1 +1,18 @@
+name: Variables Test Pipeline
 
+on: [push, pull_request]
+
+jobs:
+  show-variables:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Show all environment variables
+        run: |
+          echo "=== SYSTEM VARIABLES ==="
+          echo "GITHUB_REPOSITORY: $GITHUB_REPOSITORY"
+          echo "GITHUB_REF: $GITHUB_REF"
+          echo "GITHUB_SHA: $GITHUB_SHA "
