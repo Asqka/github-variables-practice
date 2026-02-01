@@ -52,4 +52,6 @@ jobs:
           echo "Testing production environment..."
           echo "Production DB URL exists: ${{ secrets.PROD_DB_URL != '' }}"
         environment: production  
-          
+        
+      - name: Show app version
+        run: echo "App verison: $APP_VERSION"
