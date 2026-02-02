@@ -1,0 +1,19 @@
+name: Produciton Pipeline
+
+on:
+  push:
+    branches: [ main ]
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    environment: production
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Show productions variables
+        run: |
+          echo "Production environment"
+          echo "DB URL: ${{ secrets.PROD_DB_URL }}" 
